@@ -125,9 +125,9 @@
 									<div class="tab-body">
 										<div class="subscribe-form">
 											<h4>Get Early Access</h4>
-											<form action="" class="form-inline">
+											<form id="form" action="http://127.0.0.1:5000/save_email/" class="form-inline" method="POST">
 												<input type="email" name="email" class="form-control btn-rounded" id="emailfield" placeholder="Email Address">
-												<button type="submit" class="btn btn-cyan btn-round">Submit</button>
+												<button value="Submit" type="submit" class="btn btn-cyan btn-round">Submit</button>
 											</form><br>
 											<p class="whole-new">A whole new way to manage your money</p>
 										</div><!-- /end subscribe-form -->
@@ -320,6 +320,22 @@
 		  $('.body-bg').css('background-image', 'url('+ 'img/home.jpg' +')');
 		});
 
+	</script>
+	<script>
+	$('#form').on('submit', function(event){
+		var formData = JSON.stringify($("#form").serializeArray());
+		console.log(formData)
+	         $.ajax({
+	             type: 'POST',
+	             url: 'http://0.0.0.0:5000/save_email/',
+	             dataType: 'json',
+	             data: formData,
+	             contentType : 'application/json',
+	             success: function() {}
+	         });
+
+	        return false;
+ 		});
 	</script>
 </body>
 </html>
