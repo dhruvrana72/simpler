@@ -125,7 +125,7 @@
 									<div class="tab-body">
 										<div class="subscribe-form">
 											<h4>Get Early Access</h4>
-											<form id="form" action="http://127.0.0.1:5000/save_email/" class="form-inline" method="POST">
+											<form name="email_form" id="form" action="http://127.0.0.1:5000/save_email/" class="form-inline" method="POST">
 												<input type="email" name="email" class="form-control btn-rounded" id="emailfield" placeholder="Email Address">
 												<button value="Submit" type="submit" class="btn btn-cyan btn-round">Submit</button>
 											</form><br>
@@ -333,6 +333,8 @@
 	             contentType : 'application/json',
 	             success: function() {}
 	         });
+	         var frm = document.getElementsByName('email_form')[0];
+	         frm.reset();
 
 	        return false;
  		});
